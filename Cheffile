@@ -1,0 +1,9 @@
+site "http://community.opscode.com/api/v1"
+
+cookbook 'apt'
+cookbook 'build-essential'
+cookbook 'ruby_build'
+cookbook 'nodejs'
+cookbook 'postgresql', '~> 3.4.20'
+cookbook 'ruby_rbenv', git: 'https://github.com/chef-rbenv/ruby_rbenv'
+cookbook 'oh_my_zsh',  :git => "https://github.com/shingara/oh-my-zsh-chef"

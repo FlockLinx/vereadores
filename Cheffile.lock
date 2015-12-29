@@ -1,0 +1,64 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    7-zip (1.0.2)
+      windows (>= 1.2.2)
+    apt (2.9.2)
+    ark (0.9.0)
+      7-zip (>= 0.0.0)
+      windows (>= 0.0.0)
+    build-essential (2.2.4)
+    chef-sugar (3.2.0)
+    chef_handler (1.2.0)
+    dmg (2.3.0)
+    git (4.3.5)
+      build-essential (>= 0.0.0)
+      dmg (>= 0.0.0)
+      windows (>= 0.0.0)
+      yum-epel (>= 0.0.0)
+    homebrew (2.0.3)
+      build-essential (>= 2.1.2)
+    nodejs (2.4.4)
+      apt (>= 0.0.0)
+      ark (>= 0.0.0)
+      build-essential (>= 0.0.0)
+      homebrew (>= 0.0.0)
+      yum-epel (>= 0.0.0)
+    openssl (4.4.0)
+      chef-sugar (>= 3.1.1)
+    postgresql (3.4.24)
+      apt (>= 1.9.0)
+      build-essential (>= 0.0.0)
+      openssl (~> 4.0)
+    ruby_build (0.8.0)
+    windows (1.39.0)
+      chef_handler (>= 0.0.0)
+    yum (3.8.2)
+    yum-epel (0.6.5)
+      yum (~> 3.2)
+
+GIT
+  remote: https://github.com/chef-rbenv/ruby_rbenv
+  ref: master
+  sha: e8efda4649b843c6ef60a8cfe32794d3f52bd612
+  specs:
+    ruby_rbenv (1.0.1)
+      ruby_build (>= 0.0.0)
+
+GIT
+  remote: https://github.com/shingara/oh-my-zsh-chef
+  ref: master
+  sha: f223d7618e3413f727dff52b5a2454d9d3086ce2
+  specs:
+    oh_my_zsh (0.0.1)
+      git (>= 0.0.0)
+
+DEPENDENCIES
+  apt (>= 0)
+  build-essential (>= 0)
+  nodejs (>= 0)
+  oh_my_zsh (>= 0)
+  postgresql (~> 3.4.20)
+  ruby_build (>= 0)
+  ruby_rbenv (>= 0)
+
