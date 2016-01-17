@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  educationLevel: MyString
-  election: MyString
+  tse_id: 1
+  name: Dev
 
 two:
-  educationLevel: MyString
-  election: MyString
+  tse_id: 2
+  name: Front

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230020929) do
+ActiveRecord::Schema.define(version: 20160117150049) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "campaings", force: true do |t|
     t.integer  "coalition_id"
@@ -33,16 +36,16 @@ ActiveRecord::Schema.define(version: 20151230020929) do
     t.datetime "updated_at"
   end
 
-  add_index "campaings", ["city_id"], name: "index_campaings_on_city_id"
-  add_index "campaings", ["civil_status_id"], name: "index_campaings_on_civil_status_id"
-  add_index "campaings", ["coalition_id"], name: "index_campaings_on_coalition_id"
-  add_index "campaings", ["education_level_id"], name: "index_campaings_on_education_level_id"
-  add_index "campaings", ["election_id"], name: "index_campaings_on_election_id"
-  add_index "campaings", ["job_id"], name: "index_campaings_on_job_id"
-  add_index "campaings", ["party_id"], name: "index_campaings_on_party_id"
-  add_index "campaings", ["politian_id"], name: "index_campaings_on_politian_id"
-  add_index "campaings", ["status_application_id"], name: "index_campaings_on_status_application_id"
-  add_index "campaings", ["status_result_id"], name: "index_campaings_on_status_result_id"
+  add_index "campaings", ["city_id"], name: "index_campaings_on_city_id", using: :btree
+  add_index "campaings", ["civil_status_id"], name: "index_campaings_on_civil_status_id", using: :btree
+  add_index "campaings", ["coalition_id"], name: "index_campaings_on_coalition_id", using: :btree
+  add_index "campaings", ["education_level_id"], name: "index_campaings_on_education_level_id", using: :btree
+  add_index "campaings", ["election_id"], name: "index_campaings_on_election_id", using: :btree
+  add_index "campaings", ["job_id"], name: "index_campaings_on_job_id", using: :btree
+  add_index "campaings", ["party_id"], name: "index_campaings_on_party_id", using: :btree
+  add_index "campaings", ["politian_id"], name: "index_campaings_on_politian_id", using: :btree
+  add_index "campaings", ["status_application_id"], name: "index_campaings_on_status_application_id", using: :btree
+  add_index "campaings", ["status_result_id"], name: "index_campaings_on_status_result_id", using: :btree
 
   create_table "cities", force: true do |t|
     t.string  "name",     limit: 60
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20151230020929) do
     t.integer "state_id"
   end
 
-  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
   create_table "civil_statuses", force: true do |t|
     t.string   "tse_id"
@@ -64,8 +67,8 @@ ActiveRecord::Schema.define(version: 20151230020929) do
     t.integer "party_id"
   end
 
-  add_index "coalition_parties", ["coalition_id"], name: "index_coalition_parties_on_coalition_id"
-  add_index "coalition_parties", ["party_id"], name: "index_coalition_parties_on_party_id"
+  add_index "coalition_parties", ["coalition_id"], name: "index_coalition_parties_on_coalition_id", using: :btree
+  add_index "coalition_parties", ["party_id"], name: "index_coalition_parties_on_party_id", using: :btree
 
   create_table "coalitions", force: true do |t|
     t.string   "tse_id"
@@ -119,6 +122,7 @@ ActiveRecord::Schema.define(version: 20151230020929) do
 
   create_table "states", force: true do |t|
     t.string "name"
+    t.string "full_name"
   end
 
   create_table "status_applications", force: true do |t|

@@ -1,0 +1,32 @@
+<%= breadcrumb do %>
+  <%= breadcrumb_item @campaing.state_name, state_path(@campaing.state) %>
+  <%= breadcrumb_item @campaing.city_name, city_path(@campaing.city) %>
+  <%= breadcrumb_item @politian.name %>
+<% end %>
+
+<h1><%= @politian.name %></h1>
+<ul class="list-unstyled">
+  <li><%= @politian.birth %></li>
+  <li><%= @politian.gender %></li>
+  <li><%= @politian.birth_city %></li>
+</ul>
+<h2>Eleições de <%= @campaing.year %> para vereador
+  de <%= @campaing.city_name %></h2>
+
+<ul class="list-unstyled">
+  <li class="result-election">
+    Resultado: <p class=" label label-<%= tag_result_class(@campaing.status_result) %>"><%= @campaing.status_result_name %></p>
+  </li>
+</br>
+  <li>Situação da candidatura	: <%= @campaing.status_application_name %></li>
+  <li>Instruçao: <%= @campaing.education_level_name %></li>
+  <li>Ocupaçao: <%= @campaing.job_name %></li>
+  <li>Estado Civil: <%= @campaing.civil_status_name %></li>
+  <li>Despesa Maxima da Campanha: <%= @campaing.budget %></li>
+  <li>Número Urna: <%= @campaing.number %></li>
+  <li>Nome Urna: <%= @campaing.name_politian_urna %></li>
+  <li>Partido: <%= @campaing.party_name %></li>
+  <li>Legenda: <%= @campaing.coalition_name %></li>
+  <li>Partidos Coligaçao: </li>
+  <%= @campaing.coalition_content %>
+</ul>

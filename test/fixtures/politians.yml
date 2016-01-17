@@ -4,8 +4,11 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+ cpf: 229.875.852.75
+ name: Felipe
+ birth_date: 21/05/1988
+ gender: 2
+ nationality: 1
+ birth_city_id: 1
+ voter_number: 6454545

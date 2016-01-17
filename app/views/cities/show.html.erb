@@ -1,0 +1,30 @@
+<%= breadcrumb do %>
+  <%= breadcrumb_item "Estados", states_path %>
+  <%= breadcrumb_item @city.state_name, state_path(@city.state) %>
+  <%= breadcrumb_item @city.name %>
+<% end %>
+
+<h1>Vereadores de <%= @city.name %> - Eleições <%= @election.year %></h1>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="<%= is_active?(params[:filtro], "eleitos")%>">
+    <%= link_to "Eleitos", city_path(@city) %>
+  </li>
+  <li role="presentation" class="<%= is_active?(params[:filtro], "suplentes")%>">
+    <%= link_to "Suplentes", city_path(@city, filtro: "suplentes") %>
+  </li>
+  <li role="presentation" class="<%= is_active?(params[:filtro], "nao-eleitos")%>">
+    <%= link_to "Não Eleitos", city_path(@city, filtro: "nao-eleitos") %>
+  </li>
+</ul>
+
+<h2><%= filter_text(params[:filtro]) %></h2>
+<%- @politians.each do |p| %>
+  <div class="bs-callout bs-callout-primary politian-card">
+    <h4><%= link_to p.name_politian_urna, politian_path(p.politian) %></h4>
+    <span><%= p.party_name %></span>
+    <br/>
+    <span>Coligação: <%= p.coalition_name %></span>
+  </div>
+<% end %>
+<%= paginate @politians %>

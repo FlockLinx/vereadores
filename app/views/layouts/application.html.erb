@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <div class="header">
+      <%= link_to root_path do %>
+        <h3 class="text-muted">Vereadores</h3>
+      <% end %>
+    </div>
+    <%= yield %>
+  </div>
 
-<%= yield %>
-
+<footer>
+  <small>
+    Os dados desta página são todos oficiais e fornecidos pela Justiça Eleitoral (http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais).
+    Este site não está relacionado a nenhum órgão de governo.
+    O site disponibiliza dados informativos sobre candidatos para o cargo de vereador.
+    Este site não realiza nenhum tipo de propaganda eleitoral e pesquisa eleitoral.
+    Qualquer dúvida entrar em contato com contato@vereadores.org
+</small>
+</footer>
 </body>
 </html>
