@@ -11,7 +11,8 @@ class Campaing < ActiveRecord::Base
   belongs_to :status_result
   belongs_to :civil_status
   delegate :name, :acronym, to: :party, prefix: true, allow_nil: true
-  delegate :name, :parties, :content, to: :coalition, prefix: true, allow_nil: true
+  delegate :name, :parties, :content, to: :coalition,
+           prefix: true, allow_nil: true
   delegate :year, to: :election
   delegate :name, to: :status_application, prefix: true, allow_nil: true
   delegate :name, to: :status_result, prefix: true, allow_nil: true

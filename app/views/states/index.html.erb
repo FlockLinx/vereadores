@@ -1,7 +1,9 @@
-<div class="col-md-2">
-  <ul class="list-unstyled">
-    <% @states.each do |s| %>
-      <li><%= link_to s.full_name, state_path(s) %></li>
-    <% end %>
-  </ul>
+<div class="row">
+  <div class="col-md-2">
+    <ul class="list-unstyled">
+      <% @states.each do |s| %>
+        <li><%= link_to s.full_name, state_path(s) %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>

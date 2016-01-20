@@ -1,5 +1,6 @@
 
 require 'csv'
+require 'open-uri'
 namespace :data do
 
   class String
@@ -11,9 +12,22 @@ namespace :data do
   desc "load vereadores data"
   task :vereadores => :environment do
     election = Election.find_or_create_by(year: "2012")
-    csv_files = Dir["db/data/*.txt"]
-    csv_files.each do |f|
-      load_vereador(f, election)
+    states = %w(AC AL AM AP BA CE ES GO MA
+                MG MS MT PA PB PE PI PR RJ
+                RN RO RR RS SC SE SP TO)
+    states.each do |state|
+      begin
+        file = Tempfile.new('temp.csv')
+        file.binmode
+        open("https://s3-sa-east-1.amazonaws.com/fbbergamo/vereadores/consulta_cand_2012_#{state}.txt") { |data| file.write data.read }
+        file.close
+        load_vereador(file.path, election)
+      ensure
+        if file.present?
+          file.close
+          file.unlink
+        end
+      end
     end
   end
 
