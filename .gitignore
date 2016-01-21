@@ -12,7 +12,6 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/db/data/*
 /log/*.log
 /tmp
 /.vagrant/*
