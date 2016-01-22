@@ -19,3 +19,5 @@
 /cookbooks/*
 cookbooks
 log
+config/env.yml
+env.yml

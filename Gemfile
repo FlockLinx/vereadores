@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'sitemap_generator'
+gem "fog"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
