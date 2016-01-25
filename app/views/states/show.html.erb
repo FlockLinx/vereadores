@@ -4,15 +4,19 @@
       <%= breadcrumb_item "Estados", states_path %>
       <%= breadcrumb_item @state.full_name %>
     <% end %>
-
-    <h1>Vereadores por Cidade no Estado do <%= "#{@state.full_name} - #{@state.name}" %></h1>
+    <div class="page-header">
+      <h1>Vereadores por Cidade no Estado do <%= "#{@state.full_name} - #{@state.name}" %></h1>
+    </div>
     <% if params[:indice].present? %>
       <small><%= link_to "remover filtro - Letra: #{params[:indice]}", state_path(@state)%></small>
     <% end %>
-
     <div class="cities-list">
-      <%= alphabetical_list(@state.tse_cities, { index: params[:indice] } ) %>
-      <div class="list-names">
+      <div class="row text-center">
+        <ul class="list-inline">
+          <%= alphabetical_list(@state.tse_cities, { index: params[:indice] } ) %>
+        </ul>
+      </div>
+      <div class="list-names cities-all-names">
         <% alphabetical_order(@cities) do |item| %>
           <li>
             <%= link_to item.name, city_path(item) %>

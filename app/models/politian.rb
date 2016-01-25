@@ -8,4 +8,17 @@ class Politian < ActiveRecord::Base
     now = Time.now.utc.to_date
     now.year - birth_date.year - (birth_date.to_date.change(:year => now.year) > now ? 1 : 0)
   end
+
+  def last_campaing
+    campaings.last if campaings.present?
+  end
+
+  def politian_urna_name
+    last_campaing.name_campain if last_campaing.present?
+  end
+
+  def to_param
+    "#{id} #{politian_urna_name}".to_url
+  end
+
 end

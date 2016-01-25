@@ -30,7 +30,8 @@ gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'sitemap_generator'
 gem "fog"
-
+gem "stringex"
+gem 'kaminari-bootstrap', '~> 3.0.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

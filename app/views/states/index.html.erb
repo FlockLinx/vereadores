@@ -1,8 +1,20 @@
 <div class="row">
-  <div class="col-md-2">
-    <ul class="list-unstyled">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Lista de Vereadores</h1>
+    </div>
+    <ul class="media-list">
       <% @states.each do |s| %>
-        <li><%= link_to s.full_name, state_path(s) %></li>
+        <li class="media">
+
+          <%= link_to state_path(s) do %>
+            <div class="media-left">
+            </div>
+            <div class="media-body">
+              <%= s.full_name %>
+            </div>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>

@@ -22,4 +22,8 @@ class Campaing < ActiveRecord::Base
   delegate :name, to: :city, prefix: true, allow_nil: true
   delegate :name, to: :state, prefix: true, allow_nil: true
 
+  def releated_campaings
+    CampaingsDecorator.new(Campaing.where(city: city, party: party).where.not(id: id).limit(5))
+  end
+
 end

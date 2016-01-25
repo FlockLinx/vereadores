@@ -1,11 +1,12 @@
 <%= breadcrumb do %>
   <%= breadcrumb_item "Estados", states_path %>
-  <%= breadcrumb_item @city.state_name, state_path(@city.state) %>
+  <%= breadcrumb_item @city.state_full_name, state_path(@city.state) %>
   <%= breadcrumb_item @city.name %>
 <% end %>
 
-<h1>Vereadores de <%= @city.name %> - Eleições <%= @election.year %></h1>
-
+<div class="page-header">
+  <h1>Vereadores de <%= @city.name %> - Eleições <%= @election.year %></h1>
+</div>
 <ul class="nav nav-tabs">
   <li role="presentation" class="<%= is_active?(params[:filtro], "eleitos")%>">
     <%= link_to "Eleitos", city_path(@city) %>
@@ -20,11 +21,19 @@
 
 <h2><%= filter_text(params[:filtro]) %></h2>
 <%- @politians.each do |p| %>
-  <div class="bs-callout bs-callout-primary politian-card">
-    <h4><%= link_to p.name_politian_urna, politian_path(p.politian) %></h4>
-    <span><%= p.party_name %></span>
-    <br/>
-    <span>Coligação: <%= p.coalition_name %></span>
+  <div class="col-lg-6 col-md-12 ">
+    <%= link_to politian_path(p.politian_object) do %>
+      <div class="bs-callout <%= politian_card(params[:filtro]) %> politian-card">
+        <h4><%= p.politian_name %></h4>
+        <span><%= p.party_name %></span>
+        <br/>
+        <span>Coligação: <%= p.coalition_name %></span>
+      </div>
+    <% end %>
   </div>
 <% end %>
-<%= paginate @politians %>
+<div class="row">
+  <div class="col-lg-12">
+    <%= paginate @politians %>
+  </div>
+</div>

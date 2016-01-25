@@ -9,7 +9,7 @@ module ApplicationHelper
   def is_active?(filter, filter_tab)
     filter == filter_tab ? "active" : ""
   end
-  
+
   def breadcrumb_item(name = nil, url = nil, html_options = {}, &block)
     if name or block
       html_options[:class] = "#{html_options[:class]} active" unless url
@@ -27,9 +27,8 @@ module ApplicationHelper
     tags = ""
     br = options.fetch(:br, false)
     selected_index = options.fetch(:index, "")
-    puts selected_index
     list_grouped  = list.group_by{|u| u.name[0]}
-  	('A'..'Z').to_a.each do |letter|
+    ('A'..'Z').to_a.each do |letter|
         label = if selected_index == letter
           "label label-default"
           elsif list_grouped[letter]
@@ -39,8 +38,10 @@ module ApplicationHelper
           end
         options = {class: "alphabetic-letter #{label}"}
         options[:href] = "?indice=#{letter}" if list_grouped[letter]
-        tags += content_tag (list_grouped[letter] ? :a : :span), options do
-          letter
+        tags += content_tag :li do
+          content_tag (list_grouped[letter] ? :a : :span), options do
+            letter
+          end
         end
         if (letter == 'K' && br)
           tags += "<br/>"

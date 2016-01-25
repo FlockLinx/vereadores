@@ -7,6 +7,10 @@ class PolitianDecorator
   end
 
   def name
+    politian.politian_urna_name || politian.name
+  end
+
+  def full_name
     politian.name
   end
 
@@ -21,7 +25,4 @@ class PolitianDecorator
   def birth_city
     "Cidade Nascimento: #{politian.birth_city_name} - #{politian.birth_city_state_name} - #{nationality}"
   end
-
-
-
 end

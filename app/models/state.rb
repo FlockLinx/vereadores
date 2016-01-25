@@ -9,4 +9,8 @@ class State < ActiveRecord::Base
   def tse_cities_with_index(index)
     tse_cities.where("unaccent(cities.name) like?", "#{index}%")
   end
+
+  def to_param
+    "#{id} #{full_name} #{name}".to_url
+  end
 end
