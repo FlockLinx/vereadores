@@ -15,22 +15,21 @@
 
 <h2><%= @campaing.title %></h2>
 <ul class="list-unstyled">
-  <li class="result-election">
-    Resultado: <p class=" label label-<%= tag_result_class(@campaing.status_result) %>"><%= @campaing.status_result_name %></p>
-  </li>
-</br>
-  <li>Situação da candidatura	: <%= @campaing.status_application_name %></li>
-  <li>Instruçao: <%= @campaing.education_level_name %></li>
-  <li>Ocupaçao: <%= @campaing.job_name %></li>
-  <li>Estado Civil: <%= @campaing.civil_status_name %></li>
-  <li>Despesa Maxima da Campanha: <%= @campaing.budget %></li>
-  <li>Número Urna: <%= @campaing.number %></li>
-  <li>Partido: <%= @campaing.party_name %></li>
-  <li>Legenda: <%= @campaing.coalition_name %></li>
-  <li>Partidos Coligaçao: </li>
-  <%= @campaing.coalition_content %>
-</ul>
-
-
-<h3></h3>
+    <li class="result-election">
+      Resultado: <p class="label label-<%= tag_result_class(@campaing.status_result) %>">
+        <%= @campaing.status_result_name %>
+      </p>
+    </li>
+    </br>
+    <li>Situação da candidatura	: <%= @campaing.status_application_name %></li>
+    <li>Instrução: <%= @campaing.education_level_name %></li>
+    <li>Ocupação: <%= @campaing.job_name %></li>
+    <li>Estado civil: <%= @campaing.civil_status_name %></li>
+    <li>Limite de gastos Mmáxima da campanha: <%= @campaing.budget %></li>
+    <li>Número urna: <%= @campaing.number %></li>
+    <li>Partido: <%= @campaing.party_name %></li>
+    <li>Legenda: <%= @campaing.coalition_name %></li>
+    <li>Partidos coligação: </li>
+    <%= @campaing.coalition_content %>
+  </ul>
 <%= @campaing.releated_campaings_list %>
