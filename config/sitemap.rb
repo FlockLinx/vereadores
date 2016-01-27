@@ -9,12 +9,12 @@ SitemapGenerator::Sitemap.sitemaps_host = "http://files.vereadores.org.s3-websit
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 SitemapGenerator::Sitemap.create_index = true
 SitemapGenerator::Sitemap.create do
-  
-  Politian.find_each do |poli|
-    add politian_path(poli), :lastmod => poli.updated_at, :priority => 1
-  end
+
+  # Politian.find_each do |poli|
+  #   add politian_path(poli), :lastmod => poli.updated_at, :priority => 1
+  # end
 
   City.find_each do |city|
-    add city_path(city), :lastmod => city.updated_at, :priority => 0.7
+    add city_path(city), :lastmod => city.updated_at, :priority => 1
   end
 end
