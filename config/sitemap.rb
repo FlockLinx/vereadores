@@ -15,6 +15,6 @@ SitemapGenerator::Sitemap.create do
   # end
 
   City.find_each do |city|
-    add city_path(city), :lastmod => city.updated_at, :priority => 1
+    add city_path(city), :lastmod => DateTime.now, :priority => 1
   end
 end
