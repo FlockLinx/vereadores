@@ -4,7 +4,7 @@ SitemapGenerator::Sitemap.public_path = 'tmp/'
 # store on S3 using Fog
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new
 # inform the map cross-linking where to find the other maps
-SitemapGenerator::Sitemap.sitemaps_host = "http://files.vereadores.org.s3-website-sa-east-1.amazonaws.com/"
+SitemapGenerator::Sitemap.sitemaps_host = "http://files.vereadores.org/"
 # pick a namespace within your bucket to organize your maps
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 SitemapGenerator::Sitemap.create_index = true
